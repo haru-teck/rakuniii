@@ -2,5 +2,11 @@
 <p>ようこそ、<%= current_user.name %> さん！</p>
 
 <% if current_user.role_id == 1 %>
-  <%= link_to '新規アカウント作成', new_user_registration_path %>
+  <ul>
+    <li>
+      <%= link_to '新規アカウント作成', new_user_registration_path, method: :get, data: { turbo: false } %>
+    </li>
+  </ul>
 <% end %>
+
+

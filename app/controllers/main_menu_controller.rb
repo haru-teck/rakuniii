@@ -1,8 +1,8 @@
 class MainMenuController < ApplicationController
-  before_action :authenticate_user!  # ログインしているユーザーのみアクセス可能
+  before_action :authenticate_user!
 
   def index
-    # 必要に応じて、ここに処理を追加
+    Rails.logger.debug "=== Current User: #{current_user.inspect} ==="
   end
 end
 
