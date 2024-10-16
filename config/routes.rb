@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # ログイン済みユーザーのルート
+  authenticated :user do
+    root to: 'main_menu#index', as: :authenticated_root
+  end
+
+  # 未ログインユーザーのルート
+  unauthenticated do
+    root to: 'home#index', as: :unauthenticated_root
+  end
 end
+
+
+

@@ -1,0 +1,19 @@
+<h2>ログイン</h2>
+
+<%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f| %>
+  <div>
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name, required: true, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password, required: true %>
+  </div>
+
+  <div>
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+
+
